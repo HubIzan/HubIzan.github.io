@@ -225,6 +225,7 @@ body {
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .tech-tags li {
@@ -261,12 +262,12 @@ body {
 
 .project-links .btn {
     display: flex;
-    align-items: center; /* Alinea el icono y el texto verticalmente */
+    align-items: center;
     background-color: #333;
     color: #fff;
-    padding: 6px 12px; /* Botones más pequeños */
+    padding: 6px 12px;
     text-decoration: none;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px;
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
@@ -280,10 +281,10 @@ body {
 }
 
 .btn-icon {
-    width: 18px; /* Icono más pequeño */
+    width: 18px;
     height: 18px;
-    margin-right: 8px; /* Menor espacio entre icono y texto */
-    filter: invert(1); /* El icono se muestra claro por defecto */
+    margin-right: 8px;
+    filter: invert(1);
     transition: filter 0.3s ease;
 }
 
@@ -432,7 +433,7 @@ footer .mr-4 {
     }
 
     .about-photo {
-        width: 150px; /* Reducir el tamaño de la foto */
+        width: 150px;
         margin-top: 20px;
     }
 
@@ -440,7 +441,6 @@ footer .mr-4 {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-        margin-top: 20px; /* Añadido margen superior */
     }
 
     .project-links {
@@ -471,7 +471,7 @@ footer .mr-4 {
     }
 
     .tech-tags li {
-        font-size: 0.9rem; /* Ajustar tamaño de texto de las tecnologías */
+        font-size: 0.9rem;
         padding: 6px 12px;
     }
 
@@ -492,7 +492,7 @@ footer .mr-4 {
     }
 
     .project-links .btn {
-        min-width: 100px; /* Botones más pequeños */
+        min-width: 100px;
     }
 
     .social-links {
