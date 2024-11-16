@@ -206,7 +206,7 @@ body {
 }
 
 .project-img img:hover {
-    transform: scale(1.15); /* Aumenta el tamaño de la imagen al 105% */
+    transform: scale(1.15);
 }
 
 .project-info {
@@ -225,6 +225,10 @@ body {
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#sobre-mi .tech-tags {
     margin-top: 40px;
 }
 
