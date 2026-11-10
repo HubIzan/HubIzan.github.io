@@ -7,7 +7,7 @@ import CountUp from './CountUp.jsx';
 import HeroTitle from './HeroTitle.jsx';
 import LogoLoop from './LogoLoop.jsx';
 import dosalScreens from '../assets/dosal-pantallas.png';
-import { content, flowTech, links, stack, type Lang } from '../data/content';
+import { content, flowTech, legales, links, stack, type Lang } from '../data/content';
 import { dosalTech, warehouseTech } from '../data/tech.jsx';
 
 interface Props {
@@ -18,6 +18,18 @@ const { lang } = Astro.props;
 const t = content[lang];
 const site = Astro.site;
 const pageUrl = new URL(lang === 'es' ? '/' : '/en/', site);
+// Datos estructurados para buscadores y asistentes: quién eres y dónde encontrarte.
+const persona = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Izan Trompeta',
+  url: pageUrl.href,
+  email: `mailto:${links.email}`,
+  jobTitle: lang === 'es' ? 'Desarrollador full stack junior' : 'Junior full stack developer',
+  description: t.meta.description,
+  knowsAbout: stack.filter((s) => !['Claude', 'ChatGPT', 'Gemini'].includes(s)),
+  sameAs: [links.github, links.linkedin],
+};
 ---
 
 <!doctype html>
@@ -31,14 +43,21 @@ const pageUrl = new URL(lang === 'es' ? '/' : '/en/', site);
     <link rel="canonical" href={pageUrl} />
     <link rel="alternate" hreflang="es" href={new URL('/', site)} />
     <link rel="alternate" hreflang="en" href={new URL('/en/', site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:site_name" content="Izan Trompeta" />
     <meta property="og:title" content={t.meta.title} />
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={pageUrl} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(persona)} />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
+    <a class="saltar" href="#contenido">{lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}</a>
     <nav class="wrap nav mono" aria-label={t.nav.label}>
       <span>izan<span class="accent">.</span>trompeta</span>
       <div class="nav-links">
@@ -51,7 +70,7 @@ const pageUrl = new URL(lang === 'es' ? '/' : '/en/', site);
       </div>
     </nav>
 
-    <main>
+    <main id="contenido">
       <header class="wrap hero">
         <p class="mono accent up">{t.status}<span class="blink" aria-hidden="true"> _</span></p>
         <h1 class="up d1">
@@ -151,6 +170,9 @@ const pageUrl = new URL(lang === 'es' ? '/' : '/en/', site);
           <a href={links.github}>GitHub</a>
           <a href={links.linkedin}>LinkedIn</a>
         </div>
+      </div>
+      <div class="footer-legal mono">
+        {legales[lang].map((l) => <a href={l.ruta} hreflang={lang === 'en' ? 'es' : undefined}>{l.texto}</a>)}
       </div>
     </footer>
 

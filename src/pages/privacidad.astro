@@ -1,0 +1,27 @@
+---
+import Legal from '../components/Legal.astro';
+import { links } from '../data/content';
+---
+
+<Legal titulo="Política de privacidad" ruta="/privacidad/" descripcion="Política de privacidad de la web de Izan Trompeta y de su aplicación personal «Oficina correo», que ordena su propio Gmail.">
+  <h2>Responsable</h2>
+  <p>El responsable del tratamiento es Izan Trompeta, titular indicado en el <a href="/aviso-legal/">aviso legal</a>. Contacto: <a href={`mailto:${links.email}`}>{links.email}</a>.</p>
+
+  <h2>Esta web</h2>
+  <p>No usa formularios, cuentas, analítica ni cookies de terceros, y no carga nada de otros servidores: las fuentes y las imágenes van en la propia web. Si escribes al correo de contacto, tus datos se usan solo para responderte, con base en tu consentimiento al escribir, y se guardan lo necesario para atender tu consulta y después durante los plazos que exija la ley.</p>
+  <p>La web está alojada en GitHub Pages (GitHub, Inc.), que puede registrar datos técnicos de las visitas, como la dirección IP, por seguridad. Lo explica en su propia declaración de privacidad.</p>
+
+  <h2 id="oficina-correo">Aplicación «Oficina correo»</h2>
+  <p>«Oficina correo» es una herramienta personal del titular. No es un servicio público: solo la usa su propia cuenta de Gmail, que él mismo autoriza.</p>
+  <ul>
+    <li><strong>Qué datos de Google usa:</strong> de los correos nuevos de la bandeja de entrada lee el remitente, el asunto, las cabeceras técnicas (firma del remitente y envío masivo) y un fragmento corto del texto. No lee adjuntos.</li>
+    <li><strong>Para qué:</strong> solo para ordenar ese buzón: poner las etiquetas Publicidad, Avisos pasados, Prioritario o Revisar, archivar la publicidad y avisar al titular de los correos importantes. Nunca borra, envía, responde ni reenvía correos.</li>
+    <li><strong>Dónde se guardan:</strong> en el ordenador del titular. Se guarda un registro de acciones con el identificador del mensaje y la etiqueta puesta, sin el contenido de los correos, y los avisos de correos importantes de las últimas 48 horas.</li>
+    <li><strong>Con quién se comparten:</strong> los correos que las reglas fijas no saben clasificar se envían a Claude (Anthropic), dentro de la suscripción del titular, para que elija una de las cuatro etiquetas. Solo van el remitente, el asunto y unos 300 caracteres del texto. No se venden ni se ceden a nadie más, ni se usan para publicidad.</li>
+    <li><strong>Cómo retirar el permiso:</strong> en tu cuenta de Google, en <em>Seguridad → Aplicaciones y servicios de terceros</em>. Desde ese momento la aplicación deja de tener acceso.</li>
+  </ul>
+  <p>El uso que hace «Oficina correo» de la información recibida de las API de Google se ajusta a la Política de datos de usuario de los servicios de API de Google, incluidos los requisitos de uso limitado.</p>
+
+  <h2>Tus derechos</h2>
+  <p>Puedes pedir acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al correo de contacto. Si no te atendemos bien, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+</Legal>

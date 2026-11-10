@@ -1,0 +1,14 @@
+# Izan Trompeta
+
+> Portfolio de Izan Trompeta, desarrollador full stack junior con foco en backend (Python, FastAPI, MySQL, SQLAlchemy, Docker y React), con base en Madrid y disponible en remoto. Contacto: izan.trompeta@gmail.com.
+
+## Proyectos
+
+- Aplicación de almacén (en uso real en una empresa cliente de distribución a hostelería): digitaliza albaranes con OCR, propone los productos y una persona los confirma con el código de barras antes de tocar el stock. Lotes y movimientos separados en MySQL para aplicar FIFO y guardar el historial. Se ejecuta con Docker Compose en un mini PC de la empresa, con acceso remoto por Tailscale. Hecha con un compañero durante sus prácticas en GrouPymes.
+- Dosal (iOS y Android): app para encontrar fiestas de pueblo, con mapa, calendario y filtros, sin cuentas y sin enviar la ubicación a ningún servidor. Más de 5.600 fiestas en más de 4.100 municipios. Proyecto de dos personas, con React Native y scraping en Python.
+
+## Páginas
+
+- [Portada (español)](https://hubizan.github.io/): presentación, proyectos y contacto.
+- [Home (English)](https://hubizan.github.io/en/): the same content in English.
+- [Aviso legal](https://hubizan.github.io/aviso-legal/), [Privacidad](https://hubizan.github.io/privacidad/) y [Cookies](https://hubizan.github.io/cookies/).

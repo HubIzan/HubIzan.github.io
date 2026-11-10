@@ -1,0 +1,59 @@
+---
+// Pagina de texto legal: mismo aspecto que la portada, sin animaciones.
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import '../styles/global.css';
+import { legales } from '../data/content';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  ruta: string;
+}
+
+const { titulo, descripcion, ruta } = Astro.props;
+const url = new URL(ruta, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{`${titulo} | Izan Trompeta`}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="theme-color" content="#050505" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Izan Trompeta" />
+    <meta property="og:title" content={`${titulo} | Izan Trompeta`} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={url} />
+  </head>
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+    <nav class="wrap nav mono" aria-label="Principal">
+      <a class="marca" href="/">izan<span class="accent">.</span>trompeta</a>
+      <div class="nav-links">
+        <a href="/">Volver a la portada</a>
+      </div>
+    </nav>
+
+    <main id="contenido" class="wrap legal">
+      <h1 class="display">{titulo}</h1>
+      <slot />
+    </main>
+
+    <footer class="wrap">
+      <div class="footer">
+        <span>© {new Date().getFullYear()} Izan Trompeta</span>
+        <div>
+          {legales.es.map((l) => <a href={l.ruta}>{l.texto}</a>)}
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

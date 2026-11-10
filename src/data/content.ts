@@ -18,10 +18,25 @@ export const stack = [
 
 export const flowTech = ['OCR', 'FastAPI', 'SQLAlchemy', 'React', 'MySQL'];
 
+// Textos legales: solo en español (en la versión inglesa se indica).
+export const legales = {
+  es: [
+    { ruta: '/aviso-legal/', texto: 'Aviso legal' },
+    { ruta: '/privacidad/', texto: 'Privacidad' },
+    { ruta: '/cookies/', texto: 'Cookies' },
+  ],
+  en: [
+    { ruta: '/aviso-legal/', texto: 'Legal notice (ES)' },
+    { ruta: '/privacidad/', texto: 'Privacy (ES)' },
+    { ruta: '/cookies/', texto: 'Cookies (ES)' },
+  ],
+};
+
 const es = {
   meta: {
     title: 'Izan Trompeta | Desarrollador de software junior',
-    description: 'Portfolio de Izan Trompeta, desarrollador full stack junior con foco en backend: Python, FastAPI, React y MySQL. Una aplicación de almacén en uso y una app publicada en App Store y Google Play.',
+    // 50-170 caracteres: lo que cabe en un resultado de Google.
+    description: 'Portfolio de Izan Trompeta, desarrollador full stack junior con foco en backend: una app de almacén en uso real y una app en App Store y Google Play.',
   },
   nav: { label: 'Principal', work: 'Proyectos', contact: 'Contacto', language: 'Idioma' },
   status: 'Disponible / Madrid o remoto',
@@ -62,7 +77,7 @@ const es = {
 const en: typeof es = {
   meta: {
     title: 'Izan Trompeta | Junior software developer',
-    description: 'Portfolio of Izan Trompeta, a junior full stack developer focused on backend: Python, FastAPI, React and MySQL. A warehouse app in daily use and an app published on the App Store and Google Play.',
+    description: 'Portfolio of Izan Trompeta, a junior full stack developer focused on backend: a warehouse app in daily use and an app on the App Store and Google Play.',
   },
   nav: { label: 'Main', work: 'Projects', contact: 'Contact', language: 'Language' },
   status: 'Available / Madrid or remote',
