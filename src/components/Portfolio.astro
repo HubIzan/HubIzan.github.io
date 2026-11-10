@@ -1,0 +1,170 @@
+---
+import { Image } from 'astro:assets';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import '../styles/global.css';
+import CountUp from './CountUp.jsx';
+import HeroTitle from './HeroTitle.jsx';
+import LogoLoop from './LogoLoop.jsx';
+import dosalScreens from '../assets/dosal-pantallas.png';
+import { content, flowTech, links, stack, type Lang } from '../data/content';
+import { dosalTech, warehouseTech } from '../data/tech.jsx';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = content[lang];
+const site = Astro.site;
+const pageUrl = new URL(lang === 'es' ? '/' : '/en/', site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="theme-color" content="#050505" />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="alternate" hreflang="es" href={new URL('/', site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/en/', site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={pageUrl} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <nav class="wrap nav mono" aria-label={t.nav.label}>
+      <span>izan<span class="accent">.</span>trompeta</span>
+      <div class="nav-links">
+        <a href="#proyectos">{t.nav.work}</a>
+        <a href="#contacto">{t.nav.contact}</a>
+        <div class="lang" role="group" aria-label={t.nav.language}>
+          <a href="/" lang="es" aria-current={lang === 'es' ? 'true' : undefined}>ES</a>
+          <a href="/en/" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <header class="wrap hero">
+        <p class="mono accent up">{t.status}<span class="blink" aria-hidden="true"> _</span></p>
+        <h1 class="up d1">
+          <HeroTitle client:load text={t.heroTitle} welcomeScale={t.heroWelcomeScale} />
+          <noscript>Izan<br />Trompeta</noscript>
+        </h1>
+        <div class="hero-foot up d2">
+          <p>{t.lead}</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#proyectos">{t.cta.work}</a>
+            {links.cv && <a class="btn" href={links.cv}>{t.cta.cv}</a>}
+          </div>
+        </div>
+      </header>
+
+      <div class="wrap" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee-clip">
+            <div class="marquee-track mono">
+              {Array.from({ length: 4 }, () => <span>{stack.join(' / ')} /</span>)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="proyectos" class="wrap section">
+        <p class="mono accent section-tag">01 / {t.warehouse.tag}</p>
+        <h2 class="display reveal">{t.warehouse.title}</h2>
+        <p class="body-large section-lead reveal">{t.warehouse.text}</p>
+        <div class="tech reveal"><LogoLoop id="tech-almacen" logos={warehouseTech} ariaLabel={t.techLabel} /></div>
+
+        <div class="pipe" aria-hidden="true"><span class="pulse"></span></div>
+        <ol class="flow">
+          {t.warehouse.flow.map((label, i) => (
+            <li style={`--i:${i}`}>
+              <span class="mono accent">{flowTech[i]}</span>
+              <strong>{label}</strong>
+            </li>
+          ))}
+        </ol>
+
+        <div class="cards">
+          {t.warehouse.points.map((point) => (
+            <article class="card reveal">
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="wrap section section-follow">
+        <p class="mono accent section-tag">02 / {t.dosal.tag}</p>
+        <div class="split">
+          <div class="split-text reveal">
+            <h2 class="display">Dosal</h2>
+            <p class="body-large">{t.dosal.text}</p>
+            <div class="tech"><LogoLoop id="tech-dosal" logos={dosalTech} ariaLabel={t.techLabel} /></div>
+            <dl class="stats">
+              {t.dosal.stats.map((stat) => (
+                <div>
+                  <dt>{stat.label}</dt>
+                  <dd>
+                    <noscript>{stat.value}</noscript>
+                    <CountUp client:visible className="stat-count" to={stat.to} prefix={stat.prefix} separator={t.dosal.separator} />
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div class="actions">
+              <a class="btn" href={links.appStore}>App Store</a>
+              <a class="btn" href={links.googlePlay}>Google Play</a>
+            </div>
+          </div>
+          <div class="split-media reveal">
+            <Image src={dosalScreens} alt={t.dosal.alt} format="webp" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section work-note">
+        <h2 class="mono accent section-tag">03 / {t.ai.tag}</h2>
+        <p class="body-large reveal">{t.ai.text}</p>
+      </section>
+
+      <section id="contacto" class="wrap section section-end">
+        <p class="mono accent section-tag">04 / {t.contact.tag}</p>
+        <h2 class="display display-heavy reveal">{t.contact.title}</h2>
+        <a class="mail accent" href={`mailto:${links.email}`}>{links.email}</a>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <div class="footer">
+        <span>© {new Date().getFullYear()} Izan Trompeta</span>
+        <div>
+          <a href={links.github}>GitHub</a>
+          <a href={links.linkedin}>LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const items = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            observer.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.12 });
+      items.forEach((item) => observer.observe(item));
+    </script>
+  </body>
+</html>

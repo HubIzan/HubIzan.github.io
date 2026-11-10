@@ -1,0 +1,80 @@
+/* El padding deja sitio a la etiqueta y el margen negativo evita que ocupe espacio en la página */
+.logo-loop {
+  display: flex;
+  max-width: 28rem;
+  margin-block: -2rem;
+  padding-block: 2rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.logo-loop--fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+}
+
+.logo-loop__group {
+  display: flex;
+  flex: none;
+  gap: var(--logo-gap);
+  margin: 0;
+  padding: 0 var(--logo-gap) 0 0;
+  list-style: none;
+  animation: logo-loop var(--logo-duration) linear infinite;
+}
+
+.logo-loop:has(.logo-loop__item:hover) .logo-loop__group {
+  animation-play-state: paused;
+}
+
+@keyframes logo-loop {
+  to { transform: translateX(-100%); }
+}
+
+.logo-loop__item {
+  position: relative;
+  display: flex;
+  color: var(--muted);
+  font-size: var(--logo-height);
+  pointer-events: auto;
+  transition: color .2s ease;
+}
+
+.logo-loop__item:hover { color: var(--accent); }
+.logo-loop__item svg { display: block; transition: transform .2s ease; }
+.logo-loop--scale .logo-loop__item:hover svg { transform: scale(1.2); }
+
+.logo-loop__label {
+  position: absolute;
+  bottom: calc(100% + .5rem);
+  left: 50%;
+  padding: .125rem .5rem;
+  border: 1px solid var(--line);
+  border-radius: .375rem;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: .75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.logo-loop__item:hover .logo-loop__label { opacity: 1; }
+
+.logo-loop__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-loop { -webkit-mask-image: none; mask-image: none; }
+  .logo-loop__group { flex: 1 1 auto; flex-wrap: wrap; animation: none; }
+  .logo-loop__group[aria-hidden] { display: none; }
+  .logo-loop__item, .logo-loop__item svg, .logo-loop__label { transition: none; }
+}
