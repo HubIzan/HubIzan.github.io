@@ -8,7 +8,7 @@ import HeroTitle from './HeroTitle.jsx';
 import LogoLoop from './LogoLoop.jsx';
 import dosalScreens from '../assets/dosal-pantallas.png';
 import { content, flowTech, legales, links, stack, type Lang } from '../data/content';
-import { dosalTech, warehouseTech } from '../data/tech.jsx';
+import { dosalTech, oficinaTech, warehouseTech } from '../data/tech.jsx';
 
 interface Props {
   lang: Lang;
@@ -143,6 +143,7 @@ const persona = {
             <div class="actions">
               <a class="btn" href={links.appStore}>App Store</a>
               <a class="btn" href={links.googlePlay}>Google Play</a>
+              <a class="btn" href={links.dosalWeb}>{lang === 'es' ? 'Web de Dosal' : 'Dosal website'}</a>
             </div>
           </div>
           <div class="split-media reveal">
@@ -151,13 +152,31 @@ const persona = {
         </div>
       </section>
 
+      <section class="wrap section section-follow">
+        <p class="mono accent section-tag">03 / {t.oficina.tag}</p>
+        <h2 class="display reveal">{t.oficina.title}</h2>
+        <p class="body-large section-lead reveal">{t.oficina.text}</p>
+        <div class="tech reveal"><LogoLoop id="tech-oficina" logos={oficinaTech} ariaLabel={t.techLabel} /></div>
+        <div class="cards">
+          {t.oficina.points.map((point) => (
+            <article class="card reveal">
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
+            </article>
+          ))}
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href={links.oficinaRepo}>{t.oficina.repo}</a>
+        </div>
+      </section>
+
       <section class="wrap section work-note">
-        <h2 class="mono accent section-tag">03 / {t.ai.tag}</h2>
+        <h2 class="mono accent section-tag">04 / {t.ai.tag}</h2>
         <p class="body-large reveal">{t.ai.text}</p>
       </section>
 
       <section id="contacto" class="wrap section section-end">
-        <p class="mono accent section-tag">04 / {t.contact.tag}</p>
+        <p class="mono accent section-tag">05 / {t.contact.tag}</p>
         <h2 class="display display-heavy reveal">{t.contact.title}</h2>
         <a class="mail accent" href={`mailto:${links.email}`}>{links.email}</a>
       </section>

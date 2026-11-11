@@ -6,6 +6,8 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/izan-trompeta-loarces-b621252b4/',
   appStore: 'https://apps.apple.com/es/app/dosal/id6797355665',
   googlePlay: 'https://play.google.com/store/apps/details?id=com.dosal.app',
+  dosalWeb: 'https://dosal.groupymes.es/',
+  oficinaRepo: 'https://github.com/HubIzan/oficina-digital',
   // Pon aquí la ruta del PDF (por ejemplo '/CV_Izan.pdf') para que aparezca el botón.
   // El PDF de la web no debe incluir el teléfono.
   cv: '',
@@ -67,6 +69,17 @@ const es = {
     ],
     alt: 'Cuatro pantallas de Dosal: mapa, lista, detalle de una fiesta y calendario',
   },
+  oficina: {
+    tag: 'Proyecto personal en marcha',
+    title: 'Una oficina de agentes de IA en mi PC',
+    text: 'Encargo una tarea y un equipo de agentes la investiga, la especifica, la programa y la revisa, cada uno con su papel. Yo apruebo la especificación y el merge. Corre aislada en WSL2 con mi suscripción de Claude, sin pagar nunca por uso, y la sigo desde un panel con una oficina en 3D y una isla de escritorio.',
+    points: [
+      { title: 'Por qué los agentes no tienen credenciales', text: 'No pueden subir, publicar ni hacer merge: cada aprobación es una frase escrita atada al commit exacto. Un usuario Linux por papel y systemd como jaula.' },
+      { title: 'Por qué se para sola', text: 'Lee la cuota real de la suscripción en cada sesión y se pausa antes del límite. Si detecta cualquier pago por uso, se detiene.' },
+      { title: 'Cómo la pongo a prueba', text: 'Baterías de ataques repetibles y una auditoría con la skill security-audit de Cloudflare: cada fallo encontrado quedó corregido y con su prueba.' },
+    ],
+    repo: 'Ver el código en GitHub',
+  },
   ai: {
     tag: 'Cómo los desarrollé',
     text: 'En estos proyectos usé herramientas de IA como Claude, ChatGPT y Gemini para prototipar, escribir código y documentar. Revisé y probé lo generado antes de darlo por bueno.',
@@ -107,6 +120,17 @@ const en: typeof es = {
       { value: '~2', to: 2, prefix: '~', label: 'weeks to the first version' },
     ],
     alt: 'Four Dosal screens: map, list, festival details and calendar',
+  },
+  oficina: {
+    tag: 'Personal project in progress',
+    title: 'An office of AI agents on my PC',
+    text: 'I hand over a task and a team of agents researches it, specifies it, builds it and reviews it, each in its own role. I approve the spec and the merge. It runs isolated in WSL2 on my Claude subscription, never paying per use, and I follow it from a dashboard with a 3D office and a desktop island.',
+    points: [
+      { title: 'Why the agents hold no credentials', text: 'They cannot push, publish or merge: every approval is a typed phrase tied to the exact commit. One Linux user per role and systemd as the cage.' },
+      { title: 'Why it stops on its own', text: 'It reads the real subscription usage in every session and pauses before the limit. If it detects any pay-per-use, it stops.' },
+      { title: 'How I put it to the test', text: 'Repeatable attack suites and an audit with Cloudflare’s security-audit skill: every issue it found was fixed and got its own test.' },
+    ],
+    repo: 'See the code on GitHub',
   },
   ai: {
     tag: 'How I built them',

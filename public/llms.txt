@@ -5,7 +5,8 @@
 ## Proyectos
 
 - Aplicación de almacén (en uso real en una empresa cliente de distribución a hostelería): digitaliza albaranes con OCR, propone los productos y una persona los confirma con el código de barras antes de tocar el stock. Lotes y movimientos separados en MySQL para aplicar FIFO y guardar el historial. Se ejecuta con Docker Compose en un mini PC de la empresa, con acceso remoto por Tailscale. Hecha con un compañero durante sus prácticas en GrouPymes.
-- Dosal (iOS y Android): app para encontrar fiestas de pueblo, con mapa, calendario y filtros, sin cuentas y sin enviar la ubicación a ningún servidor. Más de 5.600 fiestas en más de 4.100 municipios. Proyecto de dos personas, con React Native y scraping en Python.
+- Dosal (iOS y Android): app para encontrar fiestas de pueblo, con mapa, calendario y filtros, sin cuentas y sin enviar la ubicación a ningún servidor. Más de 5.600 fiestas en más de 4.100 municipios de 8 comunidades, con fechas contrastadas con los boletines oficiales. Proyecto de dos personas, con TypeScript, Expo y React Native. Web: https://dosal.groupymes.es/
+- Oficina Digital (proyecto personal en marcha, código en https://github.com/HubIzan/oficina-digital): una oficina de agentes de IA que corre aislada en WSL2 con su suscripción de Claude, sin pago por uso. Un Investigador, un Arquitecto, un Desarrollador y QA trabajan por roles; él aprueba la especificación y el merge con una frase atada al commit. Panel con FastAPI, React y Three.js, isla de escritorio en Tauri y Rust, y pruebas de ataque repetibles.
 
 ## Páginas
 
